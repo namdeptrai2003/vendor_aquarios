@@ -109,6 +109,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/addon.d/UPDATE-Busybox.zip:system/addon.d/UPDATE-Busybox.zip
 
+# init.d script support
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/bin/sysinit:system/bin/sysinit \
+    $(LOCAL_PATH)/root/init.aquarios.rc:root/init.aquarios.rc 
 ## Don't compile SystemUITests
 EXCLUDE_SYSTEMUI_TESTS := true
 
