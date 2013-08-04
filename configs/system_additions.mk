@@ -1,4 +1,4 @@
-# Copyright (C) 2017 AquariOS
+# Copyright (C) 2017 The Pure Nexus Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,12 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-include vendor/aquarios/configs/aosp_fixes.mk
-include vendor/aquarios/configs/common.mk
-include vendor/aquarios/configs/aquarios_main.mk
-include vendor/aquarios/configs/system_additions.mk
-
-# Telephony packages
-PRODUCT_PACKAGES += \
-    Stk \
-    CellBroadcastReceiver
+# Security Enhanced Linux
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.build.selinux=1
