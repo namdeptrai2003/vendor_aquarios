@@ -24,3 +24,7 @@ PRODUCT_PACKAGES += \
 # Allow tethering without provisioning app
 PRODUCT_PROPERTY_OVERRIDES += \
     net.tethering.noprovisioning=true
+
+# Thank you, please drive thru!
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.dun.override=0
