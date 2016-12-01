@@ -32,6 +32,10 @@ PRODUCT_PACKAGES += \
     OmniStyle \
     LiveWallpapersPicker
 
+# Include explicitly to work around Facelock issues
+PRODUCT_PACKAGES += \
+    libprotobuf-cpp-full
+
 # DU Utils Library
 PRODUCT_PACKAGES += \
     org.dirtyunicorns.utils
