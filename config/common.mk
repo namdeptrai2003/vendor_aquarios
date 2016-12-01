@@ -112,6 +112,10 @@ PRODUCT_PACKAGES += \
     WallpaperPicker \
     LiveWallpapersPicker
 
+# Include explicitly to work around Facelock issues
+PRODUCT_PACKAGES += \
+    libprotobuf-cpp-full
+
 ## Don't compile SystemUITests
 EXCLUDE_SYSTEMUI_TESTS := true
 
