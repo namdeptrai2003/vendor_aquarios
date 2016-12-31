@@ -65,3 +65,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # AquariOS bootanimation 
 -include vendor/aquarios/configs/bootanima.mk
+
+# For stereo widening effect
+ifneq ($(TARGET_NO_DSPMANAGER), true)
+    PRODUCT_PACKAGES += \
+        libcyanogen-dsp \
+        audio_effects.conf
+endif
