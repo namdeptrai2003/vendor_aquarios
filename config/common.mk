@@ -86,12 +86,17 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     AquariOSBootAnimation \
     Launcher3 \
-    AquariOSWallpaperResizer \
-    AquariOSWallpapers \
     LatinIME \
     BluetoothExt \
     LockClock \
     masquerade
+
+# DU Utils Library
+PRODUCT_PACKAGES += \
+    org.dirtyunicorns.utils
+
+PRODUCT_BOOT_JARS += \
+    org.dirtyunicorns.utils
 
 ## Don't compile SystemUITests
 EXCLUDE_SYSTEMUI_TESTS := true
