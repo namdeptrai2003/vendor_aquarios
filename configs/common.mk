@@ -50,10 +50,7 @@ endif
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/bin/backuptool.sh:install/bin/backuptool.sh \
     $(LOCAL_PATH)/bin/backuptool.functions:install/bin/backuptool.functions \
-    $(LOCAL_PATH)/addon.d/50-base.sh:system/addon.d/50-base.sh   
-
-# Add stock bootanimation 
--include vendor/aquarios/configs/bootani.mk
+    $(LOCAL_PATH)/addon.d/50-base.sh:system/addon.d/50-base.sh
 
 # AquariOS bootanimation 
 -include vendor/aquarios/configs/bootanima.mk
