@@ -89,7 +89,9 @@ PRODUCT_PACKAGES += \
     LatinIME \
     BluetoothExt \
     LockClock \
-    masquerade
+    masquerade \
+    AdAway \
+    KernelAdiutor
 
 # DU Utils Library
 PRODUCT_PACKAGES += \
