@@ -100,6 +100,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     org.dirtyunicorns.utils
 
+# Add SuperSU
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/addon.d/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip   
+
 ## Don't compile SystemUITests
 EXCLUDE_SYSTEMUI_TESTS := true
 
