@@ -91,7 +91,8 @@ PRODUCT_PACKAGES += \
     LockClock \
     masquerade \
     AdAway \
-    KernelAdiutor
+    KernelAdiutor \
+    Substratum
 
 # DU Utils Library
 PRODUCT_PACKAGES += \
