@@ -105,6 +105,10 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/addon.d/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip   
 
+# Add osmOsis Busybox
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/addon.d/UPDATE-Busybox.zip:system/addon.d/UPDATE-Busybox.zip
+
 ## Don't compile SystemUITests
 EXCLUDE_SYSTEMUI_TESTS := true
 
