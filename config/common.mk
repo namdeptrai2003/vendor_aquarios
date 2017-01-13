@@ -95,7 +95,7 @@ PRODUCT_PACKAGES += \
 # Extra Optional packages
 PRODUCT_PACKAGES += \
     SlimBootAnimation \
-    SlimLauncher \
+    Launcher3 \
     SlimWallpaperResizer \
     SlimWallpapers \
     LatinIME \
