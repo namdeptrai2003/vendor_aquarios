@@ -90,6 +90,7 @@ PRODUCT_PACKAGES += \
     SlimWallpapers \
     LatinIME \
     BluetoothExt \
+    LockClock \
     masquerade
 
 #    SlimFileManager removed until updated
