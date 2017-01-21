@@ -25,5 +25,10 @@ PRODUCT_MANUFACTURER := LGE
 # Device Fingerprint
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=bullhead \
-    BUILD_FINGERPRINT=google/bullhead/bullhead:7.1.1/N4F26T/3687331:user/release-keys \
-    PRIVATE_BUILD_DESC="bullhead-user 7.1.1 N4F26T 3687331 release-keys"
+    BUILD_FINGERPRINT="google/bullhead/bullhead:7.1.2/N2G47W/3938523:user/release-keys" \
+    PRIVATE_BUILD_DESC="bullhead-user 7.1.2 N2G47W 3938523 release-keys"
+
+# Default ringtone
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.ringtone=Lollipop.ogg
+    ro.config.notification_sound=Carme.ogg
