@@ -1,0 +1,68 @@
+# AquariOS angler init script
+# Used @nathanchance's script as base
+
+on boot
+   # Set vibration strength to 27 (50% in EXKM)
+   chown root root /sys/android_touch/vib_strength
+   chmod 666 /sys/android_touch/vib_strength
+   write /sys/android_touch/vib_strength 27
+   chmod 644 /sys/android_touch/vib_strength
+   
+on post-fs
+   write /dev/cpuset/foreground/cpus 0-7
+   write /dev/cpuset/foreground/boost/cpus 0-7
+   write /dev/cpuset/background/cpus 0-7
+   write /dev/cpuset/system-background/cpus 0-7
+   
+on property:sys.boot_completed=1
+   # according to Qcom this legacy value improves first launch latencies
+   # stock value is 512k
+   # from franciscofranco
+   setprop dalvik.vm.heapminfree 2m
+
+   # cpuset
+   write /dev/cpuset/foreground/cpus 0-2,4-7
+   write /dev/cpuset/foreground/boost/cpus 4-7
+   write /dev/cpuset/background/cpus 0,5
+   write /dev/cpuset/system-background/cpus 0-2
+   
+#   Backlight dimmer
+#   write /sys/module/mdss_fb/parameters/backlight_dimmer 1
+   
+#  bcmdhd wakeup sources
+#  write /sys/module/wakeup/parameters/enable_ipa_ws 0
+   write /sys/module/wakeup/parameters/enable_wlan_rx_wake_ws 0
+   write /sys/module/wakeup/parameters/enable_wlan_ctrl_wake_ws 0
+   write /sys/module/wakeup/parameters/enable_wlan_wake_ws 0
+
+#  Little cluster governor - chill
+   chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+   chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+   write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor chill
+#  Little cluster min - 384 MHz
+   chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+   chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+   write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 384000
+   chmod 0444 /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+#  Little cluster max - 1248 MHz
+   chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+   chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+   write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1248000
+   chmod 0444 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+#  Big cluster governor - chill
+   chown system system /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
+   chmod 0664 /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
+   write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor chill
+#  Big cluster min - 302 MHz
+   chown system system /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
+   chmod 0664 /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
+   write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 302400
+   chmod 0444 /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
+#  Big cluster max - 1536 MHz
+   chown system system /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq
+   chmod 0664 /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq
+   write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq 1536000
+   chmod 0444 /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq
+
+#  Lazyplug
+   write /sys/module/lazyplug/parameters/lazyplug_active 1

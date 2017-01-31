@@ -14,6 +14,10 @@ PRODUCT_DEVICE := angler
 PRODUCT_MODEL := Nexus 6P
 PRODUCT_MANUFACTURER := Huawei
 
+# Bring in AquariOS ramdisk defaults
+PRODUCT_COPY_FILES += \
+	vendor/aquarios/prebuilt/root/init.aqua_angler.rc:root/init.aqua_angler.rc
+
 # Device Fingerprint
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=angler \
