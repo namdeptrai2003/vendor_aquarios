@@ -1,3 +1,5 @@
+# Copyright 2016 AquariOS Project
+#
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -10,13 +12,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LOCAL_PATH:= $(call my-dir)
-include $(CLEAR_VARS)
-LOCAL_MODULE := SlimIRC
-LOCAL_SRC_FILES := $(LOCAL_MODULE).apk
+LOCAL_PATH := vendor/aquarios/sounds/material
 
-LOCAL_MODULE_CLASS := APPS
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
-LOCAL_CERTIFICATE := PRESIGNED
-include $(BUILD_PREBUILT)
+define create-copy-media-files
+$(strip $(foreach fp,\
+  $(patsubst ./%,%, \
+    $(shell cd $(LOCAL_PATH) ; \
+            find -L -name "*.ogg" -and -not -name ".*") \
+  ),\
+  $(LOCAL_PATH)/$(fp):system/media/audio/$(fp)\
+))
+endef
+
+PRODUCT_COPY_FILES += $(call create-copy-media-files)
