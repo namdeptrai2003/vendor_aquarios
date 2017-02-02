@@ -45,7 +45,7 @@ trap cleanup EXIT INT TERM ERR
 #
 # $1: device name
 # $2: vendor name
-# $3: SLIM root directory
+# $3: AQUARIOS root directory
 # $4: is common device - optional, default to false
 # $5: cleanup - optional, default to true
 # $6: custom vendor makefile name - optional, default to false
@@ -66,15 +66,15 @@ function setup_vendor() {
         exit 1
     fi
 
-    export SLIM_ROOT="$3"
-    if [ ! -d "$SLIM_ROOT" ]; then
-        echo "\$SLIM_ROOT must be set and valid before including this script!"
+    export AQUARIOS_ROOT="$3"
+    if [ ! -d "$AQUARIOS_ROOT" ]; then
+        echo "\$AQUARIOS_ROOT must be set and valid before including this script!"
         exit 1
     fi
 
     export OUTDIR=vendor/"$VENDOR"/"$DEVICE"
-    if [ ! -d "$SLIM_ROOT/$OUTDIR" ]; then
-        mkdir -p "$SLIM_ROOT/$OUTDIR"
+    if [ ! -d "$AQUARIOS_ROOT/$OUTDIR" ]; then
+        mkdir -p "$AQUARIOS_ROOT/$OUTDIR"
     fi
 
     VNDNAME="$6"
@@ -82,9 +82,9 @@ function setup_vendor() {
         VNDNAME="$DEVICE"
     fi
 
-    export PRODUCTMK="$SLIM_ROOT"/"$OUTDIR"/"$VNDNAME"-vendor.mk
-    export ANDROIDMK="$SLIM_ROOT"/"$OUTDIR"/Android.mk
-    export BOARDMK="$SLIM_ROOT"/"$OUTDIR"/BoardConfigVendor.mk
+    export PRODUCTMK="$AQUARIOS_ROOT"/"$OUTDIR"/"$VNDNAME"-vendor.mk
+    export ANDROIDMK="$AQUARIOS_ROOT"/"$OUTDIR"/Android.mk
+    export BOARDMK="$AQUARIOS_ROOT"/"$OUTDIR"/BoardConfigVendor.mk
 
     if [ "$4" == "true" ] || [ "$4" == "1" ]; then
         COMMON=1
@@ -669,15 +669,15 @@ function get_file() {
 # Convert apk|jar .odex in the corresposing classes.dex
 #
 function oat2dex() {
-    local SLIM_TARGET="$1"
+    local AQUARIOS_TARGET="$1"
     local OEM_TARGET="$2"
     local SRC="$3"
     local TARGET=
     local OAT=
 
     if [ -z "$BAKSMALIJAR" ] || [ -z "$SMALIJAR" ]; then
-        export BAKSMALIJAR="$SLIM_ROOT"/vendor/slim/build/tools/smali/baksmali.jar
-        export SMALIJAR="$SLIM_ROOT"/vendor/slim/build/tools/smali/smali.jar
+        export BAKSMALIJAR="$AQUARIOS_ROOT"/vendor/aquarios/build/tools/smali/baksmali.jar
+        export SMALIJAR="$AQUARIOS_ROOT"/vendor/aquarios/build/tools/smali/smali.jar
     fi
 
     # Extract existing boot.oats to the temp folder
@@ -697,11 +697,11 @@ function oat2dex() {
         FULLY_DEODEXED=1 && return 0 # system is fully deodexed, return
     fi
 
-    if [ ! -f "$SLIM_TARGET" ]; then
+    if [ ! -f "$AQUARIOS_TARGET" ]; then
         return;
     fi
 
-    if grep "classes.dex" "$SLIM_TARGET" >/dev/null; then
+    if grep "classes.dex" "$AQUARIOS_TARGET" >/dev/null; then
         return 0 # target apk|jar is already odexed, return
     fi
 
@@ -712,7 +712,7 @@ function oat2dex() {
 
         if get_file "$OAT" "$TMPDIR" "$SRC"; then
             java -jar "$BAKSMALIJAR" deodex -o "$TMPDIR/dexout" -b "$BOOTOAT" -d "$TMPDIR" "$TMPDIR/$(basename "$OAT")"
-        elif [[ "$SLIM_TARGET" =~ .jar$ ]]; then
+        elif [[ "$AQUARIOS_TARGET" =~ .jar$ ]]; then
             # try to extract classes.dex from boot.oats for framework jars
             JAROAT="$TMPDIR/system/framework/$ARCH/boot-$(basename ${OEM_TARGET%.*}).oat"
             if [ ! -f "$JAROAT" ]; then
@@ -795,7 +795,7 @@ function extract() {
     local HASHLIST=( ${PRODUCT_COPY_FILES_HASHES[@]} ${PRODUCT_PACKAGES_HASHES[@]} )
     local COUNT=${#FILELIST[@]}
     local SRC="$2"
-    local OUTPUT_ROOT="$SLIM_ROOT"/"$OUTDIR"/proprietary
+    local OUTPUT_ROOT="$AQUARIOS_ROOT"/"$OUTDIR"/proprietary
     local OUTPUT_TMP="$TMPDIR"/"$OUTDIR"/proprietary
 
     if [ "$SRC" = "adb" ]; then
@@ -846,14 +846,14 @@ function extract() {
         local DEST="$OUTPUT_DIR/$FROM"
 
         if [ "$SRC" = "adb" ]; then
-            # Try SLIM target first
+            # Try AQUARIOS target first
             adb pull "/$TARGET" "$DEST"
             # if file does not exist try OEM target
             if [ "$?" != "0" ]; then
                 adb pull "/$FILE" "$DEST"
             fi
         else
-            # Try SLIM target first
+            # Try AQUARIOS  target first
             if [ -f "$SRC/$TARGET" ]; then
                 cp "$SRC/$TARGET" "$DEST"
             # if file does not exist try OEM target
@@ -945,7 +945,7 @@ function extract_firmware() {
     local FILELIST=( ${PRODUCT_COPY_FILES_LIST[@]} )
     local COUNT=${#FILELIST[@]}
     local SRC="$2"
-    local OUTPUT_DIR="$SLIM_ROOT"/"$OUTDIR"/radio
+    local OUTPUT_DIR="$AQUARIOS_ROOT"/"$OUTDIR"/radio
 
     if [ "$VENDOR_RADIO_STATE" -eq "0" ]; then
         echo "Cleaning firmware output directory ($OUTPUT_DIR).."
