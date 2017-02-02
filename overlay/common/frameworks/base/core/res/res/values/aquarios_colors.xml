@@ -18,16 +18,16 @@
 <resources>
 
     <!-- Slim colors -->
-    <add-resource type="color" name="slim_blue" />
-    <color name="slim_blue">#FF297DAF</color>
-    <add-resource type="color" name="slim_grey" />
-    <color name="slim_grey">#FF9B9B9B</color>
+    <add-resource type="color" name="aquarios_blue" />
+    <color name="aquarios_blue">#FF297DAF</color>
+    <add-resource type="color" name="aquarios_grey" />
+    <color name="aquarios_grey">#FF9B9B9B</color>
 
     <!-- Slim extra colors -->
-    <add-resource type="color" name="slim_ochre_yellow" />
-    <color name="slim_ochre_yellow">#FFEEB128</color>
-    <add-resource type="color" name="slim_grey_870" />
-    <color name="slim_grey_870">#FF2D2D2D</color>
+    <add-resource type="color" name="aquarios_ochre_yellow" />
+    <color name="aquarios_ochre_yellow">#FFEEB128</color>
+    <add-resource type="color" name="aquarios_grey_870" />
+    <color name="aquarios_grey_870">#FF2D2D2D</color>
 
     <!-- Google colors in case we need them -->
     <add-resource type="color" name="google_red" />

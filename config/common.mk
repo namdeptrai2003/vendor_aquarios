@@ -26,21 +26,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
-    vendor/slim/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
-    vendor/slim/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/slim/prebuilt/common/bin/50-slim.sh:system/addon.d/50-slim.sh
+    vendor/aquarios/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/aquarios/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/aquarios/prebuilt/common/bin/50-aquarios.sh:system/addon.d/50-aquarios.sh
 
 # Signature compatibility validation
 PRODUCT_COPY_FILES += \
-    vendor/slim/prebuilt/common/bin/otasigcheck.sh:install/bin/otasigcheck.sh
+    vendor/aquarios/prebuilt/common/bin/otasigcheck.sh:install/bin/otasigcheck.sh
 
-# SLIM-specific init file
+# AQUARIOS-specific init file
 PRODUCT_COPY_FILES += \
-    vendor/slim/prebuilt/common/etc/init.local.rc:root/init.slim.rc
+    vendor/aquarios/prebuilt/common/etc/init.local.rc:root/init.aquarios.rc
 
 # SELinux filesystem labels
 PRODUCT_COPY_FILES += \
-    vendor/slim/prebuilt/common/etc/init.d/50selinuxrelabel:system/etc/init.d/50selinuxrelabel
+    vendor/aquarios/prebuilt/common/etc/init.d/50selinuxrelabel:system/etc/init.d/50selinuxrelabel
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
@@ -48,13 +48,13 @@ PRODUCT_COPY_FILES += \
 
 # Don't export PS1 in /system/etc/mkshrc.
 PRODUCT_COPY_FILES += \
-    vendor/slim/prebuilt/common/etc/mkshrc:system/etc/mkshrc \
-    vendor/slim/prebuilt/common/etc/sysctl.conf:system/etc/sysctl.conf
+    vendor/aquarios/prebuilt/common/etc/mkshrc:system/etc/mkshrc \
+    vendor/aquarios/prebuilt/common/etc/sysctl.conf:system/etc/sysctl.conf
 
 PRODUCT_COPY_FILES += \
-    vendor/slim/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
-    vendor/slim/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit \
-    vendor/slim/prebuilt/common/bin/sysinit:system/bin/sysinit
+    vendor/aquarios/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
+    vendor/aquarios/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit \
+    vendor/aquarios/prebuilt/common/bin/sysinit:system/bin/sysinit
 
 # debug packages
 ifneq ($(TARGET_BUILD_VARIENT),user)
@@ -84,21 +84,14 @@ PRODUCT_PACKAGES += \
 
 # Extra Optional packages
 PRODUCT_PACKAGES += \
-    SlimBootAnimation \
+    AquariOSBootAnimation \
     Launcher3 \
-    SlimWallpaperResizer \
-    SlimWallpapers \
+    AquariOSWallpaperResizer \
+    AquariOSWallpapers \
     LatinIME \
     BluetoothExt \
     LockClock \
     masquerade
-
-#    SlimFileManager removed until updated
-
-ifneq ($(DISABLE_SLIM_FRAMEWORK), true)
-## Slim Framework
-include frameworks/opt/slim/slim_framework.mk
-endif
 
 ## Don't compile SystemUITests
 EXCLUDE_SYSTEMUI_TESTS := true
@@ -143,54 +136,44 @@ PRODUCT_BOOT_JARS += \
     telephony-ext
 
 PRODUCT_PACKAGE_OVERLAYS += \
-    vendor/slim/overlay/common \
-    vendor/slim/overlay/dictionaries
+    vendor/aquarios/overlay/common \
+    vendor/aquarios/overlay/dictionaries
 
 # Versioning System
-# Slim version.
+# AquariOS version.
 PRODUCT_VERSION_MAJOR = 7.1.1
 PRODUCT_VERSION_MINOR = build
 PRODUCT_VERSION_MAINTENANCE = 0.9
-ifdef SLIM_BUILD_EXTRA
-    SLIM_POSTFIX := -$(SLIM_BUILD_EXTRA)
+ifdef AQUARIOS_BUILD_EXTRA
+    AQUARIOS_POSTFIX := -$(AQUARIOS_BUILD_EXTRA)
 endif
-ifndef SLIM_BUILD_TYPE
-    SLIM_BUILD_TYPE := UNOFFICIAL
+ifndef AQUARIOS_BUILD_TYPE
+    AQUARIOS_BUILD_TYPE := UNOFFICIAL
     PLATFORM_VERSION_CODENAME := UNOFFICIAL
 endif
 
-ifeq ($(SLIM_BUILD_TYPE),DM)
-    SLIM_POSTFIX := -$(shell date +"%Y%m%d")
+ifeq ($(AQUARIOS_BUILD_TYPE),DM)
+    AQUARIOS_POSTFIX := -$(shell date +"%Y%m%d")
 endif
 
-ifndef SLIM_POSTFIX
-    SLIM_POSTFIX := -$(shell date +"%Y%m%d-%H%M")
+ifndef AQUARIOS_POSTFIX
+    AQUARIOS_POSTFIX := -$(shell date +"%Y%m%d-%H%M")
 endif
 
-PLATFORM_VERSION_CODENAME := $(SLIM_BUILD_TYPE)
-
-# SlimIRC
-# export INCLUDE_SLIMIRC=1 for unofficial builds
-ifneq ($(filter WEEKLY OFFICIAL,$(SLIM_BUILD_TYPE)),)
-    INCLUDE_SLIMIRC = 1
-endif
-
-ifneq ($(INCLUDE_SLIMIRC),)
-    PRODUCT_PACKAGES += SlimIRC
-endif
+PLATFORM_VERSION_CODENAME := $(AQUARIOS_BUILD_TYPE)
 
 # Set all versions
-SLIM_VERSION := Slim-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-$(SLIM_BUILD_TYPE)$(SLIM_POSTFIX)
-SLIM_MOD_VERSION := Slim-$(SLIM_BUILD)-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-$(SLIM_BUILD_TYPE)$(SLIM_POSTFIX)
+AQUARIOS_VERSION := AquariOS-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-$(AQUARIOS_BUILD_TYPE)$(AQUARIOS_POSTFIX)
+AQUARIOS_MOD_VERSION := AquariOS-$(AQUARIOS_BUILD)-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-$(AQUARIOS_BUILD_TYPE)$(AQUARIOS_POSTFIX)
 
 PRODUCT_PROPERTY_OVERRIDES += \
     BUILD_DISPLAY_ID=$(BUILD_ID) \
-    slim.ota.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE) \
-    ro.slim.version=$(SLIM_VERSION) \
-    ro.modversion=$(SLIM_MOD_VERSION) \
-    ro.slim.buildtype=$(SLIM_BUILD_TYPE)
+    aquarios.ota.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE) \
+    ro.aquarios.version=$(AQUARIOS_VERSION) \
+    ro.modversion=$(AQUARIOS_MOD_VERSION) \
+    ro.aquarios.buildtype=$(AQUARIOS_BUILD_TYPE)
 
-EXTENDED_POST_PROCESS_PROPS := vendor/slim/tools/slim_process_props.py
+EXTENDED_POST_PROCESS_PROPS := vendor/aquarios/tools/aquarios_process_props.py
 
 ifeq ($(BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE),)
   ADDITIONAL_DEFAULT_PROPERTIES += \
@@ -201,4 +184,4 @@ else
 endif
 
 # Squisher Location
-SQUISHER_SCRIPT := vendor/slim/tools/squisher
+SQUISHER_SCRIPT := vendor/aquarios/tools/squisher

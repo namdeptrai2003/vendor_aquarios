@@ -18,8 +18,8 @@
 <resources>
 
     <!-- Customize Settings Theme -->
-    <color name="primary_material_settings">@android:color/slim_grey_870</color>
-    <color name="primary_dark_material_settings">@android:color/slim_grey_870</color>
+    <color name="primary_material_settings">@android:color/aquarios_grey_870</color>
+    <color name="primary_dark_material_settings">@android:color/aquarios_grey_870</color>
 
     <color name="secondary_material_settings">@android:color/material_grey_800</color>
     <color name="tertiary_material_settings">@android:color/material_grey_600</color>
