@@ -103,11 +103,11 @@ PRODUCT_BOOT_JARS += \
 
 # Add SuperSU
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/addon.d/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip   
+    vendor/aquarios/prebuilt/addon.d/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip   
 
 # Add osmOsis Busybox
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/addon.d/UPDATE-Busybox.zip:system/addon.d/UPDATE-Busybox.zip
+    vendor/aquarios/prebuilt/addon.d/UPDATE-Busybox.zip:system/addon.d/UPDATE-Busybox.zip
 
 # init.d script support
 PRODUCT_COPY_FILES += \
