@@ -88,7 +88,6 @@ PRODUCT_PACKAGES += \
     Launcher3 \
     LatinIME \
     BluetoothExt \
-    LockClock \
     masquerade \
     AdAway \
     KernelAdiutor \
