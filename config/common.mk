@@ -91,7 +91,8 @@ PRODUCT_PACKAGES += \
     masquerade \
     AdAway \
     KernelAdiutor \
-    Substratum
+    Substratum \
+    OmniStyle
 
 # DU Utils Library
 PRODUCT_PACKAGES += \
