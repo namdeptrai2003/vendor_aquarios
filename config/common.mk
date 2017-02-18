@@ -92,7 +92,8 @@ PRODUCT_PACKAGES += \
     AdAway \
     KernelAdiutor \
     Substratum \
-    OmniStyle
+    OmniStyle \
+    LockClock
 
 # DU Utils Library
 PRODUCT_PACKAGES += \
