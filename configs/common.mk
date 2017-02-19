@@ -29,7 +29,8 @@ PRODUCT_PACKAGES += \
     KernelAdiutor \
     masquerade \
     Substratum \
-    OmniStyle
+    OmniStyle \
+    LockClock
 
 # DU Utils Library
 PRODUCT_PACKAGES += \
