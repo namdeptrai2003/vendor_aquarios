@@ -1,2 +1,3 @@
 # AquariOS services
+overlay                                 u:object_r:overlay_service:s0
 aquariosactions                             u:object_r:aquarios_actions_service:s0
