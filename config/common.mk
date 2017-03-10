@@ -106,6 +106,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     org.dirtyunicorns.utils
 
+# Build Magisk root method (NEEDS DEVICE FLAG)
+ifneq ($(DEFAULT_ROOT_METHOD),Magisk)
+PRODUCT_PACKAGES += \
+    MagiskManager
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/zip/magisk.zip:system/addon.d/magisk.zip
+endif
+
 # init.d script support
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/bin/sysinit:system/bin/sysinit \
