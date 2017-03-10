@@ -74,6 +74,14 @@ PRODUCT_PACKAGES += \
     LiveWallpapersPicker \
     PhaseBeam
 
+# Build Magisk root method (NEEDS DEVICE FLAG)
+ifneq ($(DEFAULT_ROOT_METHOD),Magisk)
+PRODUCT_PACKAGES += \
+    MagiskManager
+PRODUCT_COPY_FILES += \
+    $vendor/aquarios/prebuilt/zip/magisk.zip:system/addon.d/magisk.zip
+endif
+
 # Include explicitly to work around GMS issues
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-full \
