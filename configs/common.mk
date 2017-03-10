@@ -39,6 +39,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     org.dirtyunicorns.utils
 
+# Build Magisk root method (NEEDS DEVICE FLAG)
+ifneq ($(DEFAULT_ROOT_METHOD),Magisk)
+PRODUCT_PACKAGES += \
+    MagiskManager
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/zip/magisk.zip:system/addon.d/magisk.zip
+endif
+
 # Include explicitly to work around Facelock issues
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-full
