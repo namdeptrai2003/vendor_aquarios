@@ -106,14 +106,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     org.dirtyunicorns.utils
 
-# Add SuperSU
-PRODUCT_COPY_FILES += \
-    vendor/aquarios/prebuilt/addon.d/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip   
-
-# Add osmOsis Busybox
-PRODUCT_COPY_FILES += \
-    vendor/aquarios/prebuilt/addon.d/UPDATE-Busybox.zip:system/addon.d/UPDATE-Busybox.zip
-
 # init.d script support
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/bin/sysinit:system/bin/sysinit \
