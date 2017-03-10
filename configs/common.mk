@@ -27,7 +27,7 @@ PRODUCT_PACKAGES += \
     Launcher3 \
     AdAway \
     KernelAdiutor \
-    masquerade \
+    ThemeInterfacer \
     Substratum \
     OmniStyle \
     LockClock
@@ -44,7 +44,7 @@ ifneq ($(DEFAULT_ROOT_METHOD),Magisk)
 PRODUCT_PACKAGES += \
     MagiskManager
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/zip/magisk.zip:system/addon.d/magisk.zip
+    vendor/aquarios/prebuilt/zip/magisk.zip:system/addon.d/magisk.zip
 endif
 
 # Include explicitly to work around Facelock issues
