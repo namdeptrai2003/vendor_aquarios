@@ -92,7 +92,7 @@ PRODUCT_PACKAGES += \
     Launcher3 \
     LatinIME \
     BluetoothExt \
-    masquerade \
+    ThemeInterfacer \
     AdAway \
     KernelAdiutor \
     Substratum \
