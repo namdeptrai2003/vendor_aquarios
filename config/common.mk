@@ -111,13 +111,13 @@ ifneq ($(DEFAULT_ROOT_METHOD),Magisk)
 PRODUCT_PACKAGES += \
     MagiskManager
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/zip/magisk.zip:system/addon.d/magisk.zip
+    vendor/aquarios/prebuilt/zip/magisk.zip:system/addon.d/magisk.zip
 endif
 
 # init.d script support
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/bin/sysinit:system/bin/sysinit \
-    $(LOCAL_PATH)/root/init.aquarios.rc:root/init.aquarios.rc 
+        vendor/aquarios/prebuilt/bin/sysinit:system/bin/sysinit \
+        vendor/aquarios/prebuilt/root/init.aquarios.rc:root/init.aquarios.rc 
 ## Don't compile SystemUITests
 EXCLUDE_SYSTEMUI_TESTS := true
 
