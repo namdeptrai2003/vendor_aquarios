@@ -22,6 +22,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Common overlays
 PRODUCT_PACKAGE_OVERLAYS += vendor/aquarios/overlay/common
 
+# Add version make
+-include vendor/aquarios/configs/version.mk
+
 # Added Packages
 PRODUCT_PACKAGES += \
     Launcher3 \
