@@ -97,7 +97,8 @@ PRODUCT_PACKAGES += \
     KernelAdiutor \
     Substratum \
     OmniStyle \
-    LockClock
+    LockClock \
+    OmniJaws
 
 # DU Utils Library
 PRODUCT_PACKAGES += \
