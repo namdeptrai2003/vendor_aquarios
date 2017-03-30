@@ -33,7 +33,8 @@ PRODUCT_PACKAGES += \
     ThemeInterfacer \
     Substratum \
     OmniStyle \
-    LockClock
+    LockClock \
+    OmniJaws
 
 # DU Utils Library
 PRODUCT_PACKAGES += \
