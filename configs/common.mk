@@ -31,7 +31,8 @@ PRODUCT_PACKAGES += \
     Substratum \
     OmniJaws \
     OmniStyle \
-    LiveWallpapersPicker
+    LiveWallpapersPicker \
+    Turbo
 
 # Include explicitly to work around Facelock issues
 PRODUCT_PACKAGES += \
