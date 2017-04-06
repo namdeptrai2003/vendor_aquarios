@@ -24,7 +24,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Added Packages
 PRODUCT_PACKAGES += \
-    Launcher3
+    Launcher3 \
+    AnglerSetupWizard
 
 # DU Utils Library
 PRODUCT_PACKAGES += \
