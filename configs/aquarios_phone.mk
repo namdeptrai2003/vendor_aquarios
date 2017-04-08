@@ -14,7 +14,6 @@
 
 include vendor/aquarios/configs/aosp_fixes.mk
 include vendor/aquarios/configs/common.mk
-include vendor/aquarios/configs/aquarios_main.mk
 include vendor/aquarios/configs/system_additions.mk
 
 # Telephony packages

@@ -27,4 +27,4 @@ PRODUCT_PACKAGES += \
     Launcher3
 
 # AquariOS bootanimation 
--include vendor/aquarios/configs/bootani.mk
+-include vendor/aquarios/configs/bootanima.mk
