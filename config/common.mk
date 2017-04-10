@@ -96,8 +96,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     AquariOSBootAnimation \
     Launcher3 \
-    AquariOSWallpaperResizer \
-    AquariOSWallpapers \
+    ThemeInterfacer \
+    SlimWallpaperResizer \
+    SlimWallpapers \
     LatinIME \
     BluetoothExt
 
