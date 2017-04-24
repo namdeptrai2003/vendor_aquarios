@@ -26,7 +26,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     Launcher3 \
     ThemeInterfacer \
-    AnglerSetupWizard
+    AnglerSetupWizard \
+    Substratum
 
 # DU Utils Library
 PRODUCT_PACKAGES += \
