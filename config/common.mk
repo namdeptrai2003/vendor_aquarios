@@ -113,6 +113,7 @@ PRODUCT_PACKAGES += \
     AquariosWallpaperResizer \
     Launcher3 \
     ThemeInterfacer \
+    Substratum \
     LatinIME \
     BluetoothExt
 
