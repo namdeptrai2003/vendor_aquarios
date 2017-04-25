@@ -110,6 +110,7 @@ PRODUCT_PACKAGES += \
 # Extra Optional packages
 PRODUCT_PACKAGES += \
     AquariOSBootAnimation \
+    AquariosWallpaperResizer \
     Launcher3 \
     ThemeInterfacer \
     LatinIME \
