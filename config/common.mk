@@ -115,7 +115,8 @@ PRODUCT_PACKAGES += \
     ThemeInterfacer \
     Substratum \
     LatinIME \
-    BluetoothExt
+    BluetoothExt \
+    OmniJaws
 
 ## Don't compile SystemUITests
 EXCLUDE_SYSTEMUI_TESTS := true
