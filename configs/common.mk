@@ -27,7 +27,8 @@ PRODUCT_PACKAGES += \
     Launcher3 \
     ThemeInterfacer \
     AnglerSetupWizard \
-    Substratum
+    Substratum \
+    OmniJaws
 
 # DU Utils Library
 PRODUCT_PACKAGES += \
