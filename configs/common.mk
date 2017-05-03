@@ -28,7 +28,8 @@ PRODUCT_PACKAGES += \
     ThemeInterfacer \
     AnglerSetupWizard \
     Substratum \
-    OmniJaws
+    OmniJaws \
+    OmniStyle
 
 # DU Utils Library
 PRODUCT_PACKAGES += \
