@@ -50,7 +50,13 @@ endif
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/bin/backuptool.sh:install/bin/backuptool.sh \
     $(LOCAL_PATH)/bin/backuptool.functions:install/bin/backuptool.functions \
-    $(LOCAL_PATH)/addon.d/50-base.sh:system/addon.d/50-base.sh
+    $(LOCAL_PATH)/addon.d/50-base.sh:system/addon.d/50-base.sh   
+
+# ROM versioning
+AQUARIOS_VERSION := $(PLATFORM_VERSION)
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.aquarios.version=$(AQUARIOS_VERSION)
 
 # AquariOS bootanimation 
 -include vendor/aquarios/configs/bootanima.mk
