@@ -111,7 +111,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     AquariOSBootAnimation \
     AquariosWallpaperResizer \
-    Launcher3 \
+    Nova \
     ThemeInterfacer \
     Substratum \
     LatinIME \
