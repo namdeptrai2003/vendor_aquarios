@@ -24,7 +24,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Added Packages
 PRODUCT_PACKAGES += \
-    Launcher3 \
+    Nova \
     ThemeInterfacer \
     AnglerSetupWizard \
     Substratum \
