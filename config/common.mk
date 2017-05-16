@@ -94,10 +94,6 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-full \
     librsjni
 
-# AudioFX
-PRODUCT_PACKAGES += \
-    AudioFX
-
 #SnapdragonGallery
 PRODUCT_PACKAGES += \
     SnapdragonGallery
