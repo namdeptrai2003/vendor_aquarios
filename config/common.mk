@@ -108,7 +108,8 @@ PRODUCT_PACKAGES += \
     LatinIME \
     BluetoothExt \
     OmniJaws \
-    OmniStyle
+    OmniStyle \
+    WallpaperPicker
 
 ## Don't compile SystemUITests
 EXCLUDE_SYSTEMUI_TESTS := true
