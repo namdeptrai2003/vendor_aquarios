@@ -53,7 +53,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/addon.d/50-base.sh:system/addon.d/50-base.sh   
 
 # ROM versioning
-AQUARIOS_VERSION := $(PLATFORM_VERSION)
+AQUARIOS_VERSION := $(PLATFORM_VERSION)-$(shell date +%Y%m%d-%H%M)
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.aquarios.version=$(AQUARIOS_VERSION)
