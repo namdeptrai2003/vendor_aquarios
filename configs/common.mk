@@ -29,7 +29,8 @@ PRODUCT_PACKAGES += \
     AnglerSetupWizard \
     Substratum \
     OmniJaws \
-    OmniStyle
+    OmniStyle \
+    LiveWallpapersPicker
 
 # DU Utils Library
 PRODUCT_PACKAGES += \
