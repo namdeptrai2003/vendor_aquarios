@@ -109,7 +109,8 @@ PRODUCT_PACKAGES += \
     BluetoothExt \
     OmniJaws \
     OmniStyle \
-    WallpaperPicker
+    WallpaperPicker \
+    LiveWallpapersPicker
 
 ## Don't compile SystemUITests
 EXCLUDE_SYSTEMUI_TESTS := true
