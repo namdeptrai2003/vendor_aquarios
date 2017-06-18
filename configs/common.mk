@@ -26,7 +26,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     Nova \
     ThemeInterfacer \
-    AnglerSetupWizard \
+    HotwordEnrollment \
     Substratum \
     OmniJaws \
     OmniStyle \

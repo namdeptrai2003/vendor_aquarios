@@ -15,12 +15,12 @@
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := AnglerSetupWizard
+LOCAL_MODULE := HotwordEnrollment
 LOCAL_MODULE_TAGS := optional
-LOCAL_SRC_FILES := AnglerSetupWizard/AnglerSetupWizard.apk
+LOCAL_SRC_FILES := AnglerHotwordEnrollment/HotwordEnrollment.apk
 LOCAL_CERTIFICATE := PRESIGNED
 LOCAL_MODULE_CLASS := APPS
-LOCAL_OVERRIDES_PACKAGES := SetupWizard
+LOCAL_OVERRIDES_PACKAGES := HotwordEnrollment
 LOCAL_PRIVILEGED_MODULE := true
 LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
 include $(BUILD_PREBUILT)
