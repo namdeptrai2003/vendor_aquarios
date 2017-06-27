@@ -43,13 +43,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     org.dirtyunicorns.utils
 
-# Magisk Manager
+# Build Magisk root method (NEEDS DEVICE FLAG)
+ifneq ($(DEFAULT_ROOT_METHOD),Magisk)
 PRODUCT_PACKAGES += \
     MagiskManager
-# Copy Magisk zip
 PRODUCT_COPY_FILES += \
-    vendor/aquarios/products/prebuilt/zip/magisk.zip:system/addon.d/magisk.zip
-
+    $(LOCAL_PATH)/prebuilt/zip/magisk.zip:system/addon.d/magisk.zip
+endif
+    
 # Backup Tool
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/bin/backuptool.sh:install/bin/backuptool.sh \
