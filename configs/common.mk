@@ -25,6 +25,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Added Packages
 PRODUCT_PACKAGES += \
     Nova \
+    NovaGoogleCompanion \
     ThemeInterfacer \
     HotwordEnrollment \
     Substratum \
