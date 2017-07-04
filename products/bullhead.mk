@@ -15,6 +15,9 @@
 # Inherit AOSP device configuration for bullhead
 $(call inherit-product, device/lge/bullhead/aosp_bullhead.mk)
 
+# Include AquariOS telephony configuration
+include vendor/aquarios/configs/aquarios_phone.mk
+
 # Override AOSP build properties
 PRODUCT_NAME := bullhead
 PRODUCT_BRAND := google
