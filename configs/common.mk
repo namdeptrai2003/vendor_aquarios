@@ -31,6 +31,7 @@ PRODUCT_PACKAGES += \
     OmniJaws \
     OmniStyle \
     LiveWallpapersPicker \
+    NexusLauncherIcons \
     Turbo
 
 # Include explicitly to work around Facelock issues
